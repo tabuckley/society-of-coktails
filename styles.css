@@ -85,7 +85,7 @@ body {
 /* Image Trail Effect */
 .trail-image {
     position: absolute;
-    max-width: 300px;
+    max-width: 400px;
     height: auto;
     pointer-events: none;
     z-index: 5;
