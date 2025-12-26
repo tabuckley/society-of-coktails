@@ -9,7 +9,10 @@
       "Bash(ls:*)",
       "Bash(magick:*)",
       "Bash(where:*)",
-      "Bash(powershell -Command \"magick --version\")"
+      "Bash(powershell -Command \"magick --version\")",
+      "Bash(\"C:\\\\Program Files\\\\Derivative\\\\TouchDesigner\\\\bin\\\\python.exe\" -m pip install requests anthropic)",
+      "Bash(\"C:\\\\Program Files\\\\Derivative\\\\TouchDesigner\\\\bin\\\\python.exe\" -c \"import requests; import anthropic; print\\(''✓ All packages installed successfully!''\\)\")",
+      "Bash(\"C:\\\\Program Files\\\\Derivative\\\\TouchDesigner\\\\bin\\\\python.exe\" -c \"import requests; import anthropic; print\\(''All packages installed successfully!''\\)\")"
     ]
   }
 }

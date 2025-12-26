@@ -62,6 +62,7 @@ let mouseX = 0;
 let mouseY = 0;
 let targetRotationX = 0;
 let targetRotationY = 0;
+let mouse3D = new THREE.Vector3();
 
 document.addEventListener('mousemove', (event) => {
     mouseX = (event.clientX / window.innerWidth) * 2 - 1;
@@ -70,6 +71,9 @@ document.addEventListener('mousemove', (event) => {
     // More extreme rotation - full 360 degree range
     targetRotationY = mouseX * Math.PI * 1.5;
     targetRotationX = mouseY * Math.PI * 0.8;
+
+    // Convert mouse position to 3D space
+    mouse3D.set(mouseX * 10, mouseY * 10, 5);
 });
 
 // Load 3D model with Draco compression
@@ -101,10 +105,14 @@ loader.load(
             envMapIntensity: 1.0
         });
 
-        // Apply material to all meshes in the model
+        // Apply material and store original vertices for distortion
         moth.traverse((child) => {
             if (child.isMesh) {
                 child.material = chromeMaterial;
+
+                // Store original vertex positions for distortion
+                const positions = child.geometry.attributes.position;
+                child.userData.originalPositions = positions.array.slice();
             }
         });
 
@@ -134,6 +142,66 @@ function animate() {
 
         // Gentle floating animation
         moth.position.y = Math.sin(Date.now() * 0.001) * 0.3;
+
+        // Apply vertex distortion based on mouse position
+        moth.traverse((child) => {
+            if (child.isMesh && child.userData.originalPositions) {
+                const positions = child.geometry.attributes.position;
+                const originalPositions = child.userData.originalPositions;
+
+                // Get world position for distance calculation
+                const worldPos = new THREE.Vector3();
+
+                for (let i = 0; i < positions.count; i++) {
+                    const i3 = i * 3;
+
+                    // Get original vertex position
+                    const vx = originalPositions[i3];
+                    const vy = originalPositions[i3 + 1];
+                    const vz = originalPositions[i3 + 2];
+
+                    // Calculate world position of vertex
+                    worldPos.set(vx, vy, vz);
+                    child.localToWorld(worldPos);
+
+                    // Calculate distance from mouse to vertex
+                    const distance = worldPos.distanceTo(mouse3D);
+                    const maxDistance = 8;
+
+                    if (distance < maxDistance) {
+                        // Pull vertices towards mouse with falloff
+                        const influence = (1 - distance / maxDistance) * 0.3;
+                        const pullDirection = new THREE.Vector3();
+                        pullDirection.subVectors(mouse3D, worldPos).normalize();
+
+                        // Apply displacement in local space
+                        child.worldToLocal(pullDirection);
+
+                        positions.setXYZ(
+                            i,
+                            vx + pullDirection.x * influence,
+                            vy + pullDirection.y * influence,
+                            vz + pullDirection.z * influence
+                        );
+                    } else {
+                        // Smoothly return to original position
+                        const currentX = positions.getX(i);
+                        const currentY = positions.getY(i);
+                        const currentZ = positions.getZ(i);
+
+                        positions.setXYZ(
+                            i,
+                            currentX + (vx - currentX) * 0.1,
+                            currentY + (vy - currentY) * 0.1,
+                            currentZ + (vz - currentZ) * 0.1
+                        );
+                    }
+                }
+
+                positions.needsUpdate = true;
+                child.geometry.computeVertexNormals();
+            }
+        });
     }
 
     // Animate volumetric light
