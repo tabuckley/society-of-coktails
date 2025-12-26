@@ -39,17 +39,8 @@ body {
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-.nav-logo {
-    font-family: Georgia, serif;
-    font-size: 1.2em;
-    color: #fff;
-    font-weight: 400;
-    letter-spacing: 1px;
-    font-style: italic;
 }
 
 .nav-menu {
