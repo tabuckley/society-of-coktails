@@ -155,9 +155,11 @@ hoverWords.forEach(word => {
     let currentBlur = 0;
     let currentOpacity = 1;
     let accumulatedTime = 0; // Track total elapsed time across multiple hovers
+    let lastTimestamp = null;
 
     const updateBlur = (timestamp) => {
         if (!hoverStartTime) hoverStartTime = timestamp;
+        lastTimestamp = timestamp;
         const elapsed = timestamp - hoverStartTime + accumulatedTime;
         const progress = Math.min(elapsed / blurDuration, 1);
 
@@ -182,8 +184,8 @@ hoverWords.forEach(word => {
         if (animationFrame) {
             cancelAnimationFrame(animationFrame);
             // Save the accumulated time so we can continue from here
-            if (hoverStartTime) {
-                accumulatedTime += Date.now() - hoverStartTime;
+            if (hoverStartTime && lastTimestamp) {
+                accumulatedTime += lastTimestamp - hoverStartTime;
             }
         }
     });
