@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node --version:*)"
+      "Bash(node --version:*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)"
     ]
   }
 }
