@@ -44,11 +44,9 @@ body {
 }
 
 .nav-logo {
-    font-size: 1.2em;
-    color: #fff;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    height: 40px;
+    width: auto;
+    display: block;
 }
 
 .nav-menu {
