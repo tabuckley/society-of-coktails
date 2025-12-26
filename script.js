@@ -46,6 +46,7 @@ const trailImages = [
 
 let currentImageIndex = 0;
 let lastTrailTime = 0;
+let trailCounter = 0;
 const trailDelay = 100; // milliseconds between each image
 
 hero.addEventListener('mousemove', (e) => {
@@ -53,6 +54,7 @@ hero.addEventListener('mousemove', (e) => {
     if (now - lastTrailTime < trailDelay) return;
 
     lastTrailTime = now;
+    trailCounter++;
 
     const rect = hero.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -64,6 +66,11 @@ hero.addEventListener('mousemove', (e) => {
     trailImg.src = trailImages[currentImageIndex];
     trailImg.style.left = x + 'px';
     trailImg.style.top = y + 'px';
+
+    // Every 10th image is triple size
+    if (trailCounter % 10 === 0) {
+        trailImg.style.maxWidth = '900px';
+    }
 
     hero.appendChild(trailImg);
 
