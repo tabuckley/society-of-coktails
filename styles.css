@@ -212,78 +212,12 @@ section {
 .about-content-full span {
     display: inline-block;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
-/* Bold effect */
-.hover-bold:hover {
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-/* Shake effect */
-.hover-shake:hover {
-    animation: shake 0.5s infinite;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-/* Glitch effect */
-.hover-glitch:hover {
-    animation: glitch 0.3s infinite;
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
-
-/* Melt effect */
-.hover-melt:hover {
-    transform: scaleY(1.5) scaleX(0.8);
-    opacity: 0.7;
-    transform-origin: bottom;
-}
-
-/* Scale effect */
-.hover-scale:hover {
-    transform: scale(1.2);
-    color: #fff;
-}
-
-/* Spin effect */
-.hover-spin:hover {
-    animation: spin 1s linear;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Wave effect */
-.hover-wave:hover {
-    animation: wave 0.6s ease-in-out infinite;
-}
-
-@keyframes wave {
-    0%, 100% { transform: translateY(0); }
-    25% { transform: translateY(-10px); }
-    75% { transform: translateY(10px); }
-}
-
-/* Blur effect */
-.hover-blur:hover {
-    filter: blur(3px);
-    opacity: 0.5;
+.about-content-full span:hover {
+    filter: blur(10px);
+    opacity: 0;
 }
 
 /* Events Section */
