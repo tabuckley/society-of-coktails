@@ -3,6 +3,11 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Scene setup
 const canvas = document.getElementById('three-canvas');
+
+if (!canvas) {
+    console.error('Canvas element not found!');
+}
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
@@ -10,6 +15,8 @@ const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true 
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 camera.position.z = 5;
+
+console.log('✅ Three.js scene initialized');
 
 // Lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -42,7 +49,7 @@ let moth = null;
 const loader = new GLTFLoader();
 
 loader.load(
-    '3dmodels/luna_moth_vcu_3d_5731.glb',
+    '3Dmodels/luna_moth_vcu_3d_5731.glb',
     (gltf) => {
         moth = gltf.scene;
 
