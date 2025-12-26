@@ -1,41 +1,46 @@
-// Mouse-following Blob Effect
-const blob = document.querySelector('.blob-cursor');
+// Image Trail Cursor Effect
 const hero = document.querySelector('.hero');
 
-let mouseX = 0;
-let mouseY = 0;
-let blobX = 0;
-let blobY = 0;
-
-hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-});
-
-hero.addEventListener('mouseenter', () => {
-    blob.style.opacity = '0.8';
-});
-
-hero.addEventListener('mouseleave', () => {
-    blob.style.opacity = '0';
-});
-
-// Smooth blob animation using transform for better performance
-function animateBlob() {
-    blobX += (mouseX - blobX) * 0.1;
-    blobY += (mouseY - blobY) * 0.1;
-
-    // Calculate offset for centering (half of blob size)
-    const offsetX = blobX - 200;
-    const offsetY = blobY - 200;
-
-    blob.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
-
-    requestAnimationFrame(animateBlob);
+// Array of all trail images
+const trailImages = [];
+for (let i = 1; i <= 39; i++) {
+    trailImages.push(`images/cursor-trail/trail-${i}.jpg`);
 }
 
-animateBlob();
+let currentImageIndex = 0;
+let lastTrailTime = 0;
+const trailDelay = 100; // milliseconds between each image
+
+hero.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastTrailTime < trailDelay) return;
+
+    lastTrailTime = now;
+
+    const rect = hero.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Create trail image element
+    const trailImg = document.createElement('div');
+    trailImg.className = 'trail-image';
+    trailImg.style.left = x + 'px';
+    trailImg.style.top = y + 'px';
+    trailImg.style.backgroundImage = `url('${trailImages[currentImageIndex]}')`;
+
+    hero.appendChild(trailImg);
+
+    // Cycle through images
+    currentImageIndex = (currentImageIndex + 1) % trailImages.length;
+
+    // Fade out and remove after animation
+    setTimeout(() => {
+        trailImg.style.opacity = '0';
+        setTimeout(() => {
+            trailImg.remove();
+        }, 1000);
+    }, 10);
+});
 
 // Smooth Scroll Reveal Animations
 const observerOptions = {

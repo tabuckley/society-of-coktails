@@ -3,7 +3,13 @@
     "allow": [
       "Bash(node --version:*)",
       "Bash(git push:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(magick:*)",
+      "Bash(where:*)",
+      "Bash(powershell -Command \"magick --version\")"
     ]
   }
 }
