@@ -65,6 +65,11 @@ hero.addEventListener('mousemove', (e) => {
     trailImg.style.left = x + 'px';
     trailImg.style.top = y + 'px';
 
+    // Random size variation (between 250px and 450px)
+    const randomSize = Math.floor(Math.random() * 200) + 250;
+    trailImg.style.maxWidth = randomSize + 'px';
+    trailImg.style.maxHeight = randomSize + 'px';
+
     hero.appendChild(trailImg);
 
     // Cycle through images
