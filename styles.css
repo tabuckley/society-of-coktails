@@ -96,7 +96,6 @@ body {
     text-align: center;
     z-index: 20;
     animation: fadeInUp 1.2s ease;
-    mix-blend-mode: difference;
     position: relative;
 }
 
