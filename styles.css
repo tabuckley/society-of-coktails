@@ -109,6 +109,14 @@ body {
     margin-bottom: 20px;
 }
 
+.hero-title-gif {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
 .hero-subtitle {
     font-size: 1.3em;
     color: #fff;
