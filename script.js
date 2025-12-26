@@ -1,4 +1,75 @@
-// 3D moth model is now handled in three-scene.js
+// Image Trail Cursor Effect
+const hero = document.querySelector('.hero');
+
+// Array of all trail images - using actual filenames
+const trailImages = [
+    'images/cursor-trail/trail-01.jpg',
+    'images/cursor-trail/trail-02.jpg',
+    'images/cursor-trail/trail-03.jpg',
+    'images/cursor-trail/trail-04.jpg',
+    'images/cursor-trail/trail-05.jpg',
+    'images/cursor-trail/trail-06.jpg',
+    'images/cursor-trail/trail-07.jpg',
+    'images/cursor-trail/trail-08.jpg',
+    'images/cursor-trail/trail-09.jpg',
+    'images/cursor-trail/trail-010.jpg',
+    'images/cursor-trail/trail-011.jpg',
+    'images/cursor-trail/trail-012.jpg',
+    'images/cursor-trail/trail-013.jpg',
+    'images/cursor-trail/trail-014.jpg',
+    'images/cursor-trail/trail-015.jpg',
+    'images/cursor-trail/trail-016.jpg',
+    'images/cursor-trail/trail-17.jpg',
+    'images/cursor-trail/trail-18.jpg',
+    'images/cursor-trail/trail-19.jpg',
+    'images/cursor-trail/trail-20.jpg',
+    'images/cursor-trail/trail-21.jpg',
+    'images/cursor-trail/trail-22.jpg',
+    'images/cursor-trail/trail-23.jpg',
+    'images/cursor-trail/trail-24.jpg',
+    'images/cursor-trail/trail-25.jpg',
+    'images/cursor-trail/trail-26.jpg',
+    'images/cursor-trail/trail-27.jpg',
+    'images/cursor-trail/trail-28.jpg',
+    'images/cursor-trail/trail-29.jpg',
+    'images/cursor-trail/trail-30.jpg',
+    'images/cursor-trail/trail-31.jpg',
+    'images/cursor-trail/trail-32.jpg',
+    'images/cursor-trail/trail-33.jpg',
+    'images/cursor-trail/trail-34.jpg',
+    'images/cursor-trail/trail-35.jpg',
+    'images/cursor-trail/trail-36.jpg',
+    'images/cursor-trail/trail-37.jpg',
+    'images/cursor-trail/trail-38.jpg',
+    'images/cursor-trail/trail-39.jpg'
+];
+
+let currentImageIndex = 0;
+let lastTrailTime = 0;
+const trailDelay = 100; // milliseconds between each image
+
+hero.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastTrailTime < trailDelay) return;
+
+    lastTrailTime = now;
+
+    const rect = hero.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Create trail image element
+    const trailImg = document.createElement('img');
+    trailImg.className = 'trail-image';
+    trailImg.src = trailImages[currentImageIndex];
+    trailImg.style.left = x + 'px';
+    trailImg.style.top = y + 'px';
+
+    hero.appendChild(trailImg);
+
+    // Cycle through images
+    currentImageIndex = (currentImageIndex + 1) % trailImages.length;
+});
 
 // Smooth Scroll Reveal Animations
 const observerOptions = {
