@@ -22,24 +22,16 @@ hero.addEventListener('mousemove', (e) => {
     const y = e.clientY - rect.top;
 
     // Create trail image element
-    const trailImg = document.createElement('div');
+    const trailImg = document.createElement('img');
     trailImg.className = 'trail-image';
+    trailImg.src = trailImages[currentImageIndex];
     trailImg.style.left = x + 'px';
     trailImg.style.top = y + 'px';
-    trailImg.style.backgroundImage = `url('${trailImages[currentImageIndex]}')`;
 
     hero.appendChild(trailImg);
 
     // Cycle through images
     currentImageIndex = (currentImageIndex + 1) % trailImages.length;
-
-    // Fade out and remove after animation
-    setTimeout(() => {
-        trailImg.style.opacity = '0';
-        setTimeout(() => {
-            trailImg.remove();
-        }, 1000);
-    }, 10);
 });
 
 // Smooth Scroll Reveal Animations

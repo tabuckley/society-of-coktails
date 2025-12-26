@@ -130,19 +130,11 @@ body {
 /* Image Trail Effect */
 .trail-image {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
+    max-width: 200px;
+    height: auto;
     pointer-events: none;
     z-index: 10;
-    opacity: 0.9;
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    transform: translate(-50%, -50%) scale(1);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-    mix-blend-mode: screen;
-    will-change: transform, opacity;
+    transform: translate(-50%, -50%);
 }
 
 /* Section Styling */
