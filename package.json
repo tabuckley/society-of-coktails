@@ -1,0 +1,12 @@
+{
+  "name": "interactive-website",
+  "version": "1.0.0",
+  "description": "A fun interactive website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": ["interactive", "website", "javascript"],
+  "author": "",
+  "license": "MIT"
+}
