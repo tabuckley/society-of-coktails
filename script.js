@@ -143,6 +143,61 @@ document.querySelectorAll('.event-card').forEach(card => {
     });
 });
 
+// Progressive blur effect on hover
+const hoverWords = document.querySelectorAll('.about-content-full span');
+const maxBlur = 10;
+const maxOpacity = 0;
+const blurDuration = 2000; // 2 seconds to fully blur
+
+hoverWords.forEach(word => {
+    let hoverStartTime = null;
+    let animationFrame = null;
+    let currentBlur = 0;
+    let currentOpacity = 1;
+
+    const updateBlur = (timestamp) => {
+        if (!hoverStartTime) hoverStartTime = timestamp;
+        const elapsed = timestamp - hoverStartTime;
+        const progress = Math.min(elapsed / blurDuration, 1);
+
+        currentBlur = progress * maxBlur;
+        currentOpacity = 1 - progress;
+
+        word.style.filter = `blur(${currentBlur}px)`;
+        word.style.opacity = currentOpacity;
+
+        if (progress < 1) {
+            animationFrame = requestAnimationFrame(updateBlur);
+        }
+    };
+
+    const reverseBlur = (timestamp) => {
+        const reverseSpeed = 0.05;
+
+        currentBlur = Math.max(0, currentBlur - reverseSpeed * maxBlur);
+        currentOpacity = Math.min(1, currentOpacity + reverseSpeed);
+
+        word.style.filter = `blur(${currentBlur}px)`;
+        word.style.opacity = currentOpacity;
+
+        if (currentBlur > 0 || currentOpacity < 1) {
+            animationFrame = requestAnimationFrame(reverseBlur);
+        }
+    };
+
+    word.addEventListener('mouseenter', () => {
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        hoverStartTime = null;
+        animationFrame = requestAnimationFrame(updateBlur);
+    });
+
+    word.addEventListener('mouseleave', () => {
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        hoverStartTime = null;
+        animationFrame = requestAnimationFrame(reverseBlur);
+    });
+});
+
 // Console message
 console.log('🍸 Welcome to the Society of Cocktails');
 console.log('🎭 A pop-up immersive art speakeasy experience');

@@ -212,12 +212,9 @@ section {
 .about-content-full span {
     display: inline-block;
     cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-.about-content-full span:hover {
-    filter: blur(10px);
-    opacity: 0;
+    filter: blur(0px);
+    opacity: 1;
+    transition: none;
 }
 
 /* Events Section */
