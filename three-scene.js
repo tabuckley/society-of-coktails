@@ -143,16 +143,14 @@ function animate() {
         // Gentle floating animation
         moth.position.y = Math.sin(Date.now() * 0.001) * 0.3;
 
-        // Apply vertex distortion based on mouse position
+        // Apply extreme vertex distortion - optimized for performance
         moth.traverse((child) => {
             if (child.isMesh && child.userData.originalPositions) {
                 const positions = child.geometry.attributes.position;
                 const originalPositions = child.userData.originalPositions;
 
-                // Get world position for distance calculation
-                const worldPos = new THREE.Vector3();
-
-                for (let i = 0; i < positions.count; i++) {
+                // Sample every 3rd vertex for performance
+                for (let i = 0; i < positions.count; i += 3) {
                     const i3 = i * 3;
 
                     // Get original vertex position
@@ -160,46 +158,44 @@ function animate() {
                     const vy = originalPositions[i3 + 1];
                     const vz = originalPositions[i3 + 2];
 
-                    // Calculate world position of vertex
-                    worldPos.set(vx, vy, vz);
-                    child.localToWorld(worldPos);
+                    // Simple distance calculation in local space (faster)
+                    const dx = vx - mouseX * 2;
+                    const dy = vy - mouseY * 2;
+                    const dz = vz;
+                    const distSq = dx * dx + dy * dy + dz * dz;
+                    const maxDistSq = 25; // ~5 units
 
-                    // Calculate distance from mouse to vertex
-                    const distance = worldPos.distanceTo(mouse3D);
-                    const maxDistance = 8;
+                    if (distSq < maxDistSq) {
+                        // Extreme pull towards mouse - can break the model apart
+                        const dist = Math.sqrt(distSq);
+                        const influence = (1 - dist / 5) * 2.5; // Much stronger influence
 
-                    if (distance < maxDistance) {
-                        // Pull vertices towards mouse with falloff
-                        const influence = (1 - distance / maxDistance) * 0.3;
-                        const pullDirection = new THREE.Vector3();
-                        pullDirection.subVectors(mouse3D, worldPos).normalize();
-
-                        // Apply displacement in local space
-                        child.worldToLocal(pullDirection);
+                        const pullX = (mouseX * 2 - vx) * influence;
+                        const pullY = (mouseY * 2 - vy) * influence;
+                        const pullZ = -vz * influence * 0.5;
 
                         positions.setXYZ(
                             i,
-                            vx + pullDirection.x * influence,
-                            vy + pullDirection.y * influence,
-                            vz + pullDirection.z * influence
+                            vx + pullX,
+                            vy + pullY,
+                            vz + pullZ
                         );
                     } else {
-                        // Smoothly return to original position
+                        // Quickly snap back to original position
                         const currentX = positions.getX(i);
                         const currentY = positions.getY(i);
                         const currentZ = positions.getZ(i);
 
                         positions.setXYZ(
                             i,
-                            currentX + (vx - currentX) * 0.1,
-                            currentY + (vy - currentY) * 0.1,
-                            currentZ + (vz - currentZ) * 0.1
+                            currentX + (vx - currentX) * 0.3,
+                            currentY + (vy - currentY) * 0.3,
+                            currentZ + (vz - currentZ) * 0.3
                         );
                     }
                 }
 
                 positions.needsUpdate = true;
-                child.geometry.computeVertexNormals();
             }
         });
     }
