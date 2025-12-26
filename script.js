@@ -171,20 +171,6 @@ hoverWords.forEach(word => {
         }
     };
 
-    const reverseBlur = (timestamp) => {
-        const reverseSpeed = 0.05;
-
-        currentBlur = Math.max(0, currentBlur - reverseSpeed * maxBlur);
-        currentOpacity = Math.min(1, currentOpacity + reverseSpeed);
-
-        word.style.filter = `blur(${currentBlur}px)`;
-        word.style.opacity = currentOpacity;
-
-        if (currentBlur > 0 || currentOpacity < 1) {
-            animationFrame = requestAnimationFrame(reverseBlur);
-        }
-    };
-
     word.addEventListener('mouseenter', () => {
         if (animationFrame) cancelAnimationFrame(animationFrame);
         hoverStartTime = null;
@@ -193,8 +179,7 @@ hoverWords.forEach(word => {
 
     word.addEventListener('mouseleave', () => {
         if (animationFrame) cancelAnimationFrame(animationFrame);
-        hoverStartTime = null;
-        animationFrame = requestAnimationFrame(reverseBlur);
+        // Keep current blur and opacity - don't reverse
     });
 });
 
