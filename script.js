@@ -1,11 +1,48 @@
 // Image Trail Cursor Effect
 const hero = document.querySelector('.hero');
 
-// Array of all trail images
-const trailImages = [];
-for (let i = 1; i <= 39; i++) {
-    trailImages.push(`images/cursor-trail/trail-${i}.jpg`);
-}
+// Array of all trail images - using actual filenames
+const trailImages = [
+    'images/cursor-trail/trail-01.jpg',
+    'images/cursor-trail/trail-02.jpg',
+    'images/cursor-trail/trail-03.jpg',
+    'images/cursor-trail/trail-04.jpg',
+    'images/cursor-trail/trail-05.jpg',
+    'images/cursor-trail/trail-06.jpg',
+    'images/cursor-trail/trail-07.jpg',
+    'images/cursor-trail/trail-08.jpg',
+    'images/cursor-trail/trail-09.jpg',
+    'images/cursor-trail/trail-010.jpg',
+    'images/cursor-trail/trail-011.jpg',
+    'images/cursor-trail/trail-012.jpg',
+    'images/cursor-trail/trail-013.jpg',
+    'images/cursor-trail/trail-014.jpg',
+    'images/cursor-trail/trail-015.jpg',
+    'images/cursor-trail/trail-016.jpg',
+    'images/cursor-trail/trail-17.jpg',
+    'images/cursor-trail/trail-18.jpg',
+    'images/cursor-trail/trail-19.jpg',
+    'images/cursor-trail/trail-20.jpg',
+    'images/cursor-trail/trail-21.jpg',
+    'images/cursor-trail/trail-22.jpg',
+    'images/cursor-trail/trail-23.jpg',
+    'images/cursor-trail/trail-24.jpg',
+    'images/cursor-trail/trail-25.jpg',
+    'images/cursor-trail/trail-26.jpg',
+    'images/cursor-trail/trail-27.jpg',
+    'images/cursor-trail/trail-28.jpg',
+    'images/cursor-trail/trail-29.jpg',
+    'images/cursor-trail/trail-30.jpg',
+    'images/cursor-trail/trail-31.jpg',
+    'images/cursor-trail/trail-32.jpg',
+    'images/cursor-trail/trail-33.jpg',
+    'images/cursor-trail/trail-34.jpg',
+    'images/cursor-trail/trail-35.jpg',
+    'images/cursor-trail/trail-36.jpg',
+    'images/cursor-trail/trail-37.jpg',
+    'images/cursor-trail/trail-38.jpg',
+    'images/cursor-trail/trail-39.jpg'
+];
 
 let currentImageIndex = 0;
 let lastTrailTime = 0;
