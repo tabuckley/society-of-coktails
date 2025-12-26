@@ -44,9 +44,12 @@ body {
 }
 
 .nav-logo {
-    height: 40px;
-    width: auto;
-    display: block;
+    font-family: Georgia, serif;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-style: italic;
 }
 
 .nav-menu {
