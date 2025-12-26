@@ -21,13 +21,16 @@ hero.addEventListener('mouseleave', () => {
     blob.style.opacity = '0';
 });
 
-// Smooth blob animation
+// Smooth blob animation using transform for better performance
 function animateBlob() {
     blobX += (mouseX - blobX) * 0.1;
     blobY += (mouseY - blobY) * 0.1;
 
-    blob.style.left = blobX + 'px';
-    blob.style.top = blobY + 'px';
+    // Calculate offset for centering (half of blob size)
+    const offsetX = blobX - 200;
+    const offsetY = blobY - 200;
+
+    blob.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
 
     requestAnimationFrame(animateBlob);
 }
