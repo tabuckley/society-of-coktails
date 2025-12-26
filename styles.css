@@ -10,7 +10,7 @@ html {
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    background: #0a0a0a;
+    background: #000;
     color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
@@ -27,11 +27,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 20px 0;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
@@ -45,7 +45,7 @@ body {
 
 .nav-logo {
     font-size: 1.2em;
-    color: #d4af37;
+    color: #fff;
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -67,7 +67,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #d4af37;
+    color: #fff;
 }
 
 /* Hero Section */
@@ -78,7 +78,7 @@ body {
     justify-content: center;
     position: relative;
     padding: 120px 40px 80px;
-    background: #0a0a0a;
+    background: #000;
     overflow: hidden;
 }
 
@@ -130,7 +130,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #0a0a0a;
+    background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,7 +154,7 @@ section {
 
 .section-title {
     font-size: 3em;
-    color: #d4af37;
+    color: #fff;
     font-weight: 300;
     letter-spacing: 6px;
     text-align: center;
@@ -191,7 +191,7 @@ section {
 
 /* Events Section */
 .events {
-    background: #0a0a0a;
+    background: #000;
 }
 
 .event-card {
@@ -246,18 +246,18 @@ section {
 }
 
 .event-date {
-    color: #2d8659;
+    color: #fff;
     font-size: 0.9em;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
 .event-status {
-    color: #d4af37;
+    color: #fff;
     font-size: 0.9em;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border: 1px solid #d4af37;
+    border: 1px solid #fff;
     padding: 2px 10px;
     border-radius: 3px;
 }
@@ -269,7 +269,7 @@ section {
 
 .event-title {
     font-size: 2.5em;
-    color: #d4af37;
+    color: #fff;
     font-weight: 300;
     letter-spacing: 4px;
     margin-bottom: 20px;
@@ -284,8 +284,8 @@ section {
 
 .event-btn {
     display: inline-block;
-    color: #d4af37;
-    border: 1px solid #d4af37;
+    color: #fff;
+    border: 1px solid #fff;
     padding: 12px 30px;
     text-decoration: none;
     text-transform: uppercase;
@@ -337,7 +337,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: #0a0a0a;
+    background: #000;
     text-align: center;
 }
 
@@ -355,8 +355,8 @@ section {
 }
 
 .social-btn {
-    color: #d4af37;
-    border: 1px solid #d4af37;
+    color: #fff;
+    border: 1px solid #fff;
     padding: 15px 40px;
     text-decoration: none;
     text-transform: uppercase;
