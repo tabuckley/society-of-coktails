@@ -95,9 +95,9 @@ document.querySelectorAll('.section-title').forEach(title => {
     observer.observe(title);
 });
 
-// Observe event cards
-document.querySelectorAll('.event-card').forEach(card => {
-    observer.observe(card);
+// Observe accordion items
+document.querySelectorAll('.accordion-item').forEach(item => {
+    observer.observe(item);
 });
 
 // Observe gallery items with staggered animation
@@ -132,16 +132,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add hover effect to event cards
-document.querySelectorAll('.event-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(0) scale(1.02)';
-    });
-
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
 
 // Progressive blur effect on hover
 const hoverWords = document.querySelectorAll('.about-content-full span');
