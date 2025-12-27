@@ -1,8 +1,9 @@
 // Image Trail Cursor Effect
 const hero = document.querySelector('.hero');
 
-// Array of all trail images - using actual filenames
+// Array of all trail images - includes cursor trail and project images
 const trailImages = [
+    // Cursor trail images
     'images/cursor-trail/trail-01.jpg',
     'images/cursor-trail/trail-02.jpg',
     'images/cursor-trail/trail-03.jpg',
@@ -41,7 +42,25 @@ const trailImages = [
     'images/cursor-trail/trail-36.jpg',
     'images/cursor-trail/trail-37.jpg',
     'images/cursor-trail/trail-38.jpg',
-    'images/cursor-trail/trail-39.jpg'
+    'images/cursor-trail/trail-39.jpg',
+    // The Aurelian
+    'images/the-aurelian/small.jpg',
+    'images/the-aurelian/smaller.jpg',
+    // Memory Bar
+    'images/memory-bar-2/small.jpg',
+    'images/memory-bar-2/smaller22-11-23_Memory Bar_0007_XT309238.jpg',
+    // Tea with Baba
+    'images/tea-with-baba/monkey.jpg',
+    // A Drink with Mother
+    'images/a-drink-with-mother/IMG_9324.jpg',
+    'images/a-drink-with-mother/IMG_9415.jpg',
+    'images/a-drink-with-mother/IMG_9495.jpg',
+    // Cocktails in the Forest
+    'images/cocktails-in-the-forest/Pondwatersmall.jpg',
+    'images/cocktails-in-the-forest/mothtoaflame.jpg',
+    // Cocktails on the Beach
+    'images/cocktails-on-the-beach/drink1.jpg',
+    'images/cocktails-on-the-beach/drink2.jpg'
 ];
 
 let currentImageIndex = 0;
