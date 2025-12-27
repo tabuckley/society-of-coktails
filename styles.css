@@ -186,7 +186,7 @@ section {
 
 .about .about-content-full {
     position: relative;
-    background: rgba(0, 0, 0, 0.85);
+    background: #000;
     padding: 60px 80px;
     margin: 0 auto;
     max-width: 1400px;
