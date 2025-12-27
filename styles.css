@@ -184,20 +184,12 @@ section {
     background-attachment: fixed;
 }
 
-.about::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
-
 .about .about-content-full {
     position: relative;
-    z-index: 2;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 60px 80px;
+    margin: 0 auto;
+    max-width: 1400px;
 }
 
 .about-content {
@@ -216,7 +208,6 @@ section {
 
 .about-content-full {
     width: 100%;
-    padding: 0 40px;
     text-align: justify;
 }
 
