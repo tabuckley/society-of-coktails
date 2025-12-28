@@ -178,16 +178,15 @@ section {
 .about {
     background: #0d0d0d;
     position: relative;
-    background-image: url('images/cursor-trail/trail-01.jpg');
+    background-image: url('images/tea-with-baba/70212514_719952788442231_3603289699474472960_n.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .about .about-content-full {
     position: relative;
     background: #000;
-    padding: 60px 80px;
+    padding: 30px 80px;
     margin: 0 auto;
     max-width: 1400px;
 }
