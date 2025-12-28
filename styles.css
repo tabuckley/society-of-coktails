@@ -111,6 +111,7 @@ body {
     display: block;
     position: relative;
     z-index: 20;
+    opacity: 1;
 }
 
 .hero-subtitle {
