@@ -201,34 +201,43 @@ hoverWords.forEach(word => {
 });
 
 // Motion.dev animations for accordion
-const { animate, scroll, stagger } = Motion;
+window.addEventListener('load', () => {
+    if (typeof Motion !== 'undefined') {
+        const { animate, scroll, stagger } = Motion;
 
-// Animate accordion items on scroll with stagger
-scroll(
-    animate('.accordion-item', {
-        opacity: [0, 1],
-        transform: ['translateY(100px) rotateX(-20deg)', 'translateY(0px) rotateX(0deg)'],
-    }, {
-        delay: stagger(0.1)
-    }),
-    { target: '.accordion-container', offset: ['start end', 'start center'] }
-);
+        // Animate accordion items on scroll with stagger
+        scroll(
+            animate('.accordion-item', {
+                opacity: [0, 1],
+                transform: ['translateY(100px) rotateX(-20deg)', 'translateY(0px) rotateX(0deg)'],
+            }, {
+                delay: stagger(0.1)
+            }),
+            { target: '.accordion-container', offset: ['start end', 'start center'] }
+        );
 
-// Add 3D tilt effect on hover
-document.querySelectorAll('.accordion-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        animate(item, {
-            transform: 'perspective(1000px) rotateY(2deg)',
-            scale: 1.02
-        }, { duration: 0.3 });
-    });
+        // Add 3D tilt effect on hover
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                animate(item, {
+                    transform: 'perspective(1000px) rotateY(2deg)',
+                    scale: 1.02
+                }, { duration: 0.3 });
+            });
 
-    item.addEventListener('mouseleave', () => {
-        animate(item, {
-            transform: 'perspective(1000px) rotateY(0deg)',
-            scale: 1
-        }, { duration: 0.3 });
-    });
+            item.addEventListener('mouseleave', () => {
+                animate(item, {
+                    transform: 'perspective(1000px) rotateY(0deg)',
+                    scale: 1
+                }, { duration: 0.3 });
+            });
+        });
+    } else {
+        // Fallback if Motion doesn't load - make items visible
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.style.opacity = '1';
+        });
+    }
 });
 
 // Console message
