@@ -200,43 +200,61 @@ hoverWords.forEach(word => {
     });
 });
 
-// 3D Scroll Gallery Effect
-const cards = document.querySelectorAll('.gallery-card');
-const eventsSection = document.querySelector('.events');
+// 3D Scroll Gallery Effect - Clean Version
+function init3DGallery() {
+    const cards = document.querySelectorAll('.gallery-card');
+    const eventsSection = document.querySelector('.events');
 
-function update3DGallery() {
-    if (!eventsSection) return;
+    if (!cards.length || !eventsSection) {
+        console.log('Gallery elements not found');
+        return;
+    }
 
-    const sectionRect = eventsSection.getBoundingClientRect();
-    const scrollProgress = Math.max(0, Math.min(1, -sectionRect.top / (sectionRect.height - window.innerHeight)));
+    function updateGallery() {
+        const rect = eventsSection.getBoundingClientRect();
+        const totalHeight = rect.height - window.innerHeight;
+        const scrollProgress = Math.max(0, Math.min(1, -rect.top / totalHeight));
 
-    cards.forEach((card, index) => {
-        const cardProgress = Math.max(0, Math.min(1, (scrollProgress - (index * 0.15)) * 2));
+        cards.forEach((card, i) => {
+            // Each card starts appearing at different scroll points
+            const cardStart = i * 0.12;
+            const cardEnd = cardStart + 0.3;
+            const cardProgress = Math.max(0, Math.min(1, (scrollProgress - cardStart) / (cardEnd - cardStart)));
 
-        // Calculate transforms based on scroll
-        const translateZ = (1 - cardProgress) * -1000;
-        const rotateY = (1 - cardProgress) * -45 + (index % 2 === 0 ? 15 : -15);
-        const rotateX = (1 - cardProgress) * 20;
-        const translateX = (index % 2 === 0 ? 100 : -100) * (1 - cardProgress);
-        const opacity = cardProgress;
-        const scale = 0.8 + (cardProgress * 0.2);
+            // 3D transform values
+            const z = -1500 + (cardProgress * 1500);
+            const rotY = -60 + (cardProgress * 60) + (i % 2 === 0 ? 20 : -20);
+            const rotX = -30 + (cardProgress * 30);
+            const x = (i % 2 === 0 ? 200 : -200) * (1 - cardProgress);
+            const scale = 0.6 + (cardProgress * 0.4);
+            const opacity = cardProgress;
 
-        card.style.transform = `
-            translate(-50%, -50%)
-            translateX(${translateX}px)
-            translateZ(${translateZ}px)
-            rotateY(${rotateY}deg)
-            rotateX(${rotateX}deg)
-            scale(${scale})
-        `;
-        card.style.opacity = opacity;
-        card.style.zIndex = Math.floor(cardProgress * 100);
-    });
+            card.style.transform = `
+                translate(-50%, -50%)
+                translateX(${x}px)
+                translateZ(${z}px)
+                rotateY(${rotY}deg)
+                rotateX(${rotX}deg)
+                scale(${scale})
+            `;
+            card.style.opacity = opacity;
+            card.style.zIndex = Math.round(cardProgress * 100);
+        });
+    }
+
+    window.addEventListener('scroll', updateGallery, { passive: true });
+    window.addEventListener('resize', updateGallery);
+    updateGallery();
+
+    console.log('3D Gallery initialized with', cards.length, 'cards');
 }
 
-window.addEventListener('scroll', update3DGallery);
-window.addEventListener('resize', update3DGallery);
-update3DGallery();
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init3DGallery);
+} else {
+    init3DGallery();
+}
 
 // Console message
 console.log('🍸 Welcome to the Society of Cocktails');
