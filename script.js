@@ -200,45 +200,43 @@ hoverWords.forEach(word => {
     });
 });
 
-// Motion.dev animations for accordion
-window.addEventListener('load', () => {
-    if (typeof Motion !== 'undefined') {
-        const { animate, scroll, stagger } = Motion;
+// 3D Scroll Gallery Effect
+const cards = document.querySelectorAll('.gallery-card');
+const eventsSection = document.querySelector('.events');
 
-        // Animate accordion items on scroll with stagger
-        scroll(
-            animate('.accordion-item', {
-                opacity: [0, 1],
-                transform: ['translateY(100px) rotateX(-20deg)', 'translateY(0px) rotateX(0deg)'],
-            }, {
-                delay: stagger(0.1)
-            }),
-            { target: '.accordion-container', offset: ['start end', 'start center'] }
-        );
+function update3DGallery() {
+    if (!eventsSection) return;
 
-        // Add 3D tilt effect on hover
-        document.querySelectorAll('.accordion-item').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                animate(item, {
-                    transform: 'perspective(1000px) rotateY(2deg)',
-                    scale: 1.02
-                }, { duration: 0.3 });
-            });
+    const sectionRect = eventsSection.getBoundingClientRect();
+    const scrollProgress = Math.max(0, Math.min(1, -sectionRect.top / (sectionRect.height - window.innerHeight)));
 
-            item.addEventListener('mouseleave', () => {
-                animate(item, {
-                    transform: 'perspective(1000px) rotateY(0deg)',
-                    scale: 1
-                }, { duration: 0.3 });
-            });
-        });
-    } else {
-        // Fallback if Motion doesn't load - make items visible
-        document.querySelectorAll('.accordion-item').forEach(item => {
-            item.style.opacity = '1';
-        });
-    }
-});
+    cards.forEach((card, index) => {
+        const cardProgress = Math.max(0, Math.min(1, (scrollProgress - (index * 0.15)) * 2));
+
+        // Calculate transforms based on scroll
+        const translateZ = (1 - cardProgress) * -1000;
+        const rotateY = (1 - cardProgress) * -45 + (index % 2 === 0 ? 15 : -15);
+        const rotateX = (1 - cardProgress) * 20;
+        const translateX = (index % 2 === 0 ? 100 : -100) * (1 - cardProgress);
+        const opacity = cardProgress;
+        const scale = 0.8 + (cardProgress * 0.2);
+
+        card.style.transform = `
+            translate(-50%, -50%)
+            translateX(${translateX}px)
+            translateZ(${translateZ}px)
+            rotateY(${rotateY}deg)
+            rotateX(${rotateX}deg)
+            scale(${scale})
+        `;
+        card.style.opacity = opacity;
+        card.style.zIndex = Math.floor(cardProgress * 100);
+    });
+}
+
+window.addEventListener('scroll', update3DGallery);
+window.addEventListener('resize', update3DGallery);
+update3DGallery();
 
 // Console message
 console.log('🍸 Welcome to the Society of Cocktails');
