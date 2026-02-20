@@ -177,19 +177,16 @@ section {
 
 /* About Section */
 .about {
-    background: #0d0d0d;
+    background: #000;
     position: relative;
-    background-image: url('images/tea-with-baba/70212514_719952788442231_3603289699474472960_n.jpg');
-    background-size: cover;
-    background-position: center;
 }
 
 .about .about-content-full {
     position: relative;
     background: #000;
-    padding: 15px 40px;
+    padding: 60px 100px;
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 100%;
 }
 
 .about-content {
