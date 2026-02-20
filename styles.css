@@ -243,7 +243,7 @@ section {
     flex: 1;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0;
     background-size: cover;
     background-position: center;
     cursor: pointer;
@@ -274,13 +274,13 @@ section {
     left: 40px;
     right: 40px;
     z-index: 10;
-    transform: rotate(-90deg);
-    transform-origin: bottom left;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .accordion-item:hover .accordion-content {
-    transform: rotate(0deg);
+    writing-mode: horizontal-tb;
 }
 
 .accordion-title {
@@ -289,9 +289,10 @@ section {
     font-weight: 300;
     letter-spacing: 6px;
     text-transform: uppercase;
-    white-space: nowrap;
     margin: 0;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Gallery Section */
