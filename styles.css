@@ -267,13 +267,13 @@ section {
     height: 550px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-    opacity: 0.5;
+    opacity: 0;
     will-change: transform, opacity;
     transform-style: preserve-3d;
+    transform: translate(-50%, -50%) translateZ(-1500px) rotateY(-60deg) scale(0.6);
 }
 
 .gallery-card img {
