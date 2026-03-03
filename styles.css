@@ -340,6 +340,11 @@ section {
     background: #000;
     overflow: hidden;
     isolation: isolate;
+    transition: padding 0.4s ease;
+}
+
+.nav-preview.visible {
+    padding: 20px;
 }
 
 /* Animated blob circles */
@@ -533,9 +538,7 @@ section {
 }
 
 .social-btn:hover {
-    background: rgba(212, 175, 55, 0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    font-weight: 700;
 }
 
 /* Event Overlay */
