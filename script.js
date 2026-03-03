@@ -245,6 +245,12 @@ const eventData = {
         title: 'Memory Bar III',
         year: '2025',
         desc: 'We enter through an orange glow and are taken up a staircase to where a bar, made from the discarded furniture of a bygone age, rises from the floor of an artist\'s studio. Once seated by our host we are invited to peruse a leather-bound menu of lost times, precious moments and happy memories. With our choice made - be it a chandelier, a greenhouse, a bonfire, a boat, a coolbox, a slice of harbour mud - the treasured memory is brought to the table for us to share: and as we drink we see, we listen, we smell, we hold, we cherish, we imagine, we empathise, we bear witness to - but above all we are humanised, and through our sharing we are made a community.',
+        collective: [
+            { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
+            { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
+            { name: 'Johnny Jones', ig: 'https://www.instagram.com/buoys_buoys_buoys/' },
+        ],
+        spotify: '',
         images: [
             'images/memory-bar-3/25-11-20_0005_ArtHouse x Society of Cocktails_XT508673_© Max Burnett.jpg',
             'images/memory-bar-3/25-11-20_0013_ArtHouse x Society of Cocktails_XT508705_© Max Burnett.jpg',
@@ -267,6 +273,12 @@ const eventData = {
         title: 'The Hunting of the Wren',
         year: '2024',
         desc: 'In a wintry landscape a Bard tells of tradition and ritual and a very small bird, before he beckons us through the snow to meet that same bird in all his boastful and playful glory. We are welcomed into the once abandoned place he has made his home, and he chirrups of his pleasures and his sorrows before we take our leave. The hunt is here and we must hide - be still in the dark, don\'t utter a word; we hold our breath for fear the hunter that walks amongst us might find us. No, he has gone and now we are safe. We come out of our hiding place in the woods onto a street of houses, lights at their windows, a welcome behind each door. A wren boy greets us and takes us wassailing through the town. We eat, we drink, we whistle, we joke, we sing, but those last few houses on the street are empty and gradually our joys fade and we are in danger of losing sight of what matters altogether. Like a portent, a chime of wrens fall from the sky, we are all culpable, and we are tasked with bearing them to their grave. Now the Bard returns, distracted, almost unrecognisable in his business suit amongst the filing cabinets; but he has a warning for us - if we truly lose sight of tradition what is left to hold us together.',
+        collective: [
+            { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
+            { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
+            { name: 'Johnny Jones', ig: 'https://www.instagram.com/buoys_buoys_buoys/' },
+        ],
+        spotify: 'https://open.spotify.com/embed/playlist/1EttpQP1oaY2SEROtjoiWq?utm_source=generator&theme=0',
         images: [
             'images/the-hunting-of-the-wren/24-12-12_Society of Cocktails_0015_XT503797.jpg',
             'images/the-hunting-of-the-wren/24-12-12_Society of Cocktails_0021_XT503873.jpg',
@@ -287,6 +299,12 @@ const eventData = {
         title: 'The Aurelian',
         year: '2023',
         desc: 'In a vaulted sepulcher he can be seen, in a darkened corner he can be heard - the Aurelian - absorbed in his mania, infused in an acid green light, surrounded by his apparatus of discovery; in one corner a tank of ghostly white cocoons lit by a fallen chandelier, in another an old radio speaks in voices, whilst in the other a fridge buzzes like an insect caught in his web. His words flutter frantically with the music as our surroundings glitch and transform and we are sent to capture a moth before being invited to drink with him at his table. Now we have a choice to make - between life or death for the moth caught in our jars - between freedom from restraint or the sanctity of a secret fellowship for us.',
+        collective: [
+            { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
+            { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
+            { name: 'Ned Lawlor' },
+        ],
+        spotify: 'https://open.spotify.com/embed/playlist/7bChenHiQRPQXwJJiNRUde?utm_source=generator&theme=0',
         images: [
             'images/the-aurelian/387863172_18303109897185840_6499761038036922780_n.jpg',
             'images/the-aurelian/407146626_1589360031600825_1595258146500212469_n.jpg',
@@ -299,6 +317,12 @@ const eventData = {
         title: 'A Drink with Mother',
         year: '2023',
         desc: 'Deep underground something stirs, it grows, it spreads. It reaches out - for love. On entering the dark subterranean space we are confronted by \'Mother\' - part human, part fungi; a burgeoning entity rising up through the brick floor, desperate to connect, to communicate, to seduce… to implant. As we sip by candlelight glistening, amber, fermentations Mother lulls us with sultry song and softly spoken mutterings that swirl around us in the spore-filled air; and as we suck white-rinded lollipops proffered by her many hands she whispers deep inside our heads - imploring, inveigling, infecting.',
+        collective: [
+            { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
+            { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
+            { name: 'Ned Lawlor' },
+        ],
+        spotify: 'https://open.spotify.com/embed/playlist/7zKtiJNWH7Jlqy5164KpX8?utm_source=generator&theme=0',
         images: [
             'images/a-drink-with-mother/IMG_9324.jpg',
             'images/a-drink-with-mother/IMG_9338.jpg',
@@ -322,6 +346,12 @@ const eventData = {
         title: 'Memory Bar II',
         year: '2022',
         desc: 'Through a wardrobe door, down a dimly lit tunnel The Sisters of Vanchelez await to guide us on a journey into times past - times of lost innocence, times of joy and wonder, times of sadness and grief - times of remembering and times of forgetting. Around the table real memories of female resilience in the potato fields, horses on sandy beaches, and steam trains on long-disused tracks through pine forests blend and fuse and become fable. So we raise our glasses, as fireworks explode around us, to the small moments that mean so much and make us who we are.',
+        collective: [
+            { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
+            { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
+            { name: 'Ned Lawlor' },
+        ],
+        spotify: '',
         images: [
             'images/memory-bar-2/22-11-23_Memory Bar_0007_XT309238.jpg',
             'images/memory-bar-2/22-11-23_Memory Bar_0045_XT309420.jpg',
@@ -337,6 +367,11 @@ const eventData = {
         title: 'Tea with Baba',
         year: '2021',
         desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        collective: [
+            { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
+            { name: 'Ned Lawlor' },
+        ],
+        spotify: '',
         images: [
             'images/tea-with-baba/70212514_719952788442231_3603289699474472960_n.jpg',
             'images/tea-with-baba/IMG_0530.jpg',
@@ -354,6 +389,10 @@ const eventData = {
         title: 'Cocktails in the Forest',
         year: '2020',
         desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        collective: [
+            { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
+        ],
+        spotify: '',
         images: [
             'images/cocktails-in-the-forest/Pondwatersmall.jpg',
             'images/cocktails-in-the-forest/mothtoaflame.jpg',
@@ -374,6 +413,8 @@ const overlayYear = overlay.querySelector('.overlay-year');
 const overlayTitle = overlay.querySelector('.overlay-title');
 const overlayDescEl = overlay.querySelector('.overlay-desc');
 const overlayGallery = overlay.querySelector('.overlay-gallery');
+const overlayCollective = overlay.querySelector('.overlay-collective');
+const overlaySpotify = overlay.querySelector('.overlay-spotify');
 
 function openOverlay(eventKey) {
     const data = eventData[eventKey];
@@ -382,6 +423,29 @@ function openOverlay(eventKey) {
     overlayYear.textContent = data.year;
     overlayTitle.textContent = data.title;
     overlayDescEl.textContent = data.desc;
+
+    // Collective panel
+    const members = (data.collective || []).map(m => {
+        const links = [];
+        if (m.web) links.push(`<a href="${m.web}" target="_blank">Web</a>`);
+        if (m.ig) links.push(`<a href="${m.ig}" target="_blank">IG</a>`);
+        const linksHtml = links.length ? `<span class="overlay-collective-links">${links.join('')}</span>` : '';
+        return `<div class="overlay-collective-member"><span class="overlay-collective-name">${m.name}</span>${linksHtml}</div>`;
+    }).join('');
+    overlayCollective.innerHTML = `
+        <span class="overlay-collective-label">The Collective</span>
+        <div class="overlay-collective-members">${members}</div>
+    `;
+
+    // Spotify panel
+    if (data.spotify) {
+        overlaySpotify.innerHTML = `
+            <span class="overlay-spotify-label">Playlist</span>
+            <iframe style="border-radius:12px" src="${data.spotify}" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        `;
+    } else {
+        overlaySpotify.innerHTML = '';
+    }
 
     overlayGallery.innerHTML = '';
     data.images.forEach(src => {

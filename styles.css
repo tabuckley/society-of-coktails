@@ -585,9 +585,99 @@ section {
 }
 
 .overlay-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     margin-bottom: 60px;
     border-bottom: 1px solid #222;
     padding-bottom: 40px;
+}
+
+.overlay-header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.overlay-collective {
+    flex: 0 0 auto;
+    margin-top: auto;
+}
+
+.overlay-spotify {
+    flex: 0 0 auto;
+}
+
+.overlay-collective-label,
+.overlay-spotify-label {
+    font-size: 0.6em;
+    color: #555;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.overlay-collective-members {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.overlay-collective-member {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 0.85em;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.overlay-collective-name {
+    color: #888;
+}
+
+.overlay-collective-links {
+    display: flex;
+    gap: 8px;
+}
+
+.overlay-collective-links a {
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.overlay-collective-links a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.overlay-spotify-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.overlay-spotify-link:hover {
+    color: #fff;
 }
 
 .overlay-year {
