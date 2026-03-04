@@ -370,7 +370,7 @@ const eventData = {
     'tea-with-baba': {
         title: 'Tea with Baba',
         year: '2021',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        desc: 'Journey into the woods to have your tea leaves read and fortune told. Somewhere between an escape room, an art installation and a cocktail masterclass - you\'ll be tasked with creating cocktails to appease Baba - following her riddles and tasks in a digital forest hut. You\'ll hear birds and smell the damp moss before following your nose to discover Baba\'s hut, thick with incense and mystery. Will you be blessed or hexed by Baba? What will she read in your tea leaves?',
         collective: [
             { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
             { name: 'Ned Lawlor' },
@@ -392,7 +392,7 @@ const eventData = {
     'cocktails-in-the-forest': {
         title: 'Cocktails in the Forest',
         year: '2020',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        desc: 'A foraged collection of strange taste experiences, immersed in live butterflies and moths. A hybrid digital and real forest, the setting for a collection of tastes from and inspired by the forest.',
         collective: [
             { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
         ],
