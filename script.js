@@ -248,7 +248,7 @@ const eventData = {
         collective: [
             { name: 'Thomas Buckley', web: 'https://www.thomas-buckley.com/', ig: 'https://www.instagram.com/thomasadambuckley/' },
             { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
-            { name: 'Johnny Jones', ig: 'https://www.instagram.com/buoys_buoys_buoys/' },
+            { name: 'James Turnbull' },
         ],
         spotify: '',
         images: [
