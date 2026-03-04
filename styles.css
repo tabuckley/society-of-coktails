@@ -664,6 +664,35 @@ section {
     border-color: #fff;
 }
 
+.overlay-commissioner {
+    flex: 0 0 auto;
+}
+
+.overlay-commissioner-label {
+    font-size: 0.6em;
+    color: #555;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.overlay-commissioner-link {
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.overlay-commissioner-link:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
 .overlay-spotify-link {
     display: flex;
     align-items: center;

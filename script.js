@@ -250,6 +250,7 @@ const eventData = {
             { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
             { name: 'James Turnbull' },
         ],
+        commissioner: { name: 'ArtHouse Jersey', url: 'https://www.arthousejersey.je/' },
         spotify: '',
         images: [
             'images/memory-bar-3/25-11-20_0005_ArtHouse x Society of Cocktails_XT508673_© Max Burnett.jpg',
@@ -278,6 +279,7 @@ const eventData = {
             { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
             { name: 'Johnny Jones', ig: 'https://www.instagram.com/buoys_buoys_buoys/' },
         ],
+        commissioner: { name: 'ArtHouse Jersey', url: 'https://www.arthousejersey.je/' },
         spotify: 'https://open.spotify.com/embed/playlist/1EttpQP1oaY2SEROtjoiWq?utm_source=generator&theme=0',
         images: [
             'images/the-hunting-of-the-wren/24-12-12_Society of Cocktails_0015_XT503797.jpg',
@@ -304,6 +306,7 @@ const eventData = {
             { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
             { name: 'Ned Lawlor' },
         ],
+        commissioner: { name: 'ArtHouse Jersey', url: 'https://www.arthousejersey.je/' },
         spotify: 'https://open.spotify.com/embed/playlist/7bChenHiQRPQXwJJiNRUde?utm_source=generator&theme=0',
         images: [
             'images/the-aurelian/387863172_18303109897185840_6499761038036922780_n.jpg',
@@ -351,6 +354,7 @@ const eventData = {
             { name: 'Kate Phillips', web: 'https://www.kate-phillips.com/', ig: 'https://www.instagram.com/vitamorte2/' },
             { name: 'Ned Lawlor' },
         ],
+        commissioner: { name: 'ArtHouse Jersey', url: 'https://www.arthousejersey.je/' },
         spotify: '',
         images: [
             'images/memory-bar-2/22-11-23_Memory Bar_0007_XT309238.jpg',
@@ -415,6 +419,7 @@ const overlayDescEl = overlay.querySelector('.overlay-desc');
 const overlayGallery = overlay.querySelector('.overlay-gallery');
 const overlayCollective = overlay.querySelector('.overlay-collective');
 const overlaySpotify = overlay.querySelector('.overlay-spotify');
+const overlayCommissioner = overlay.querySelector('.overlay-commissioner');
 
 function openOverlay(eventKey) {
     const data = eventData[eventKey];
@@ -445,6 +450,16 @@ function openOverlay(eventKey) {
         `;
     } else {
         overlaySpotify.innerHTML = '';
+    }
+
+    // Commissioner panel
+    if (data.commissioner) {
+        overlayCommissioner.innerHTML = `
+            <span class="overlay-commissioner-label">Commissioned by</span>
+            <a class="overlay-commissioner-link" href="${data.commissioner.url}" target="_blank">${data.commissioner.name} &#8599;</a>
+        `;
+    } else {
+        overlayCommissioner.innerHTML = '';
     }
 
     overlayGallery.innerHTML = '';
