@@ -426,6 +426,39 @@ const overlayCollective = overlay.querySelector('.overlay-collective');
 const overlaySpotify = overlay.querySelector('.overlay-spotify');
 const overlayCommissioner = overlay.querySelector('.overlay-commissioner');
 
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCounter = document.getElementById('lightboxCounter');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(images, index) {
+    lightboxImages = images;
+    lightboxIndex = index;
+    lightboxImg.src = encodeURI(images[index]);
+    lightboxCounter.textContent = `${index + 1} / ${images.length}`;
+    lightbox.classList.add('open');
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('open');
+}
+
+function navigateLightbox(dir) {
+    lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+    lightboxImg.src = encodeURI(lightboxImages[lightboxIndex]);
+    lightboxCounter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+lightboxNext.addEventListener('click', () => navigateLightbox(1));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
 function openOverlay(eventKey) {
     const data = eventData[eventKey];
     if (!data) return;
@@ -468,10 +501,11 @@ function openOverlay(eventKey) {
     }
 
     overlayGallery.innerHTML = '';
-    data.images.forEach(src => {
+    data.images.forEach((src, idx) => {
         const img = document.createElement('img');
         img.src = encodeURI(src);
         img.alt = data.title;
+        img.addEventListener('click', () => openLightbox(data.images, idx));
         overlayGallery.appendChild(img);
     });
 
@@ -492,6 +526,12 @@ document.querySelectorAll('.event-row[data-event]').forEach(row => {
 overlayClose.addEventListener('click', closeOverlay);
 
 document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+        return;
+    }
     if (e.key === 'Escape') closeOverlay();
 });
 
