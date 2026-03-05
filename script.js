@@ -311,9 +311,14 @@ const eventData = {
         images: [
             'images/the-aurelian/387863172_18303109897185840_6499761038036922780_n.jpg',
             'images/the-aurelian/407146626_1589360031600825_1595258146500212469_n.jpg',
+            'images/the-aurelian/407206720_3852807458280893_4174845709243484146_n.jpg',
+            'images/the-aurelian/407213925_267667295990520_1765927227246386176_n.jpg',
+            'images/the-aurelian/409958890_1055411779127311_3346965793207531885_n.jpg',
             'images/the-aurelian/cocoon.jpg',
             'images/the-aurelian/frass.jpg',
             'images/the-aurelian/IMG_0305.jpg',
+            'images/the-aurelian/small.jpg',
+            'images/the-aurelian/smaller.jpg',
         ]
     },
     'a-drink-with-mother': {
