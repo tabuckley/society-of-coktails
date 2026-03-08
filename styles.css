@@ -1075,8 +1075,17 @@ section {
 
     /* ── Collective ── */
     .collective-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .member-name {
+        font-size: 0.75em;
+        letter-spacing: 1px;
+    }
+
+    .member-links a {
+        font-size: 0.65em;
     }
 
     /* ── Events ── */
