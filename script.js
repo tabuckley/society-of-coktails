@@ -610,7 +610,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             if (progress < 1) requestAnimationFrame(animate);
                         };
                         requestAnimationFrame(animate);
-                    }, 1500 + i * 800);
+                    }, 2500 + i * 1200);
                 });
             }
         });
