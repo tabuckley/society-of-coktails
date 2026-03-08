@@ -604,7 +604,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         let startTime = null;
                         const animate = (timestamp) => {
                             if (!startTime) startTime = timestamp;
-                            const progress = Math.min((timestamp - startTime) / 2000, 1);
+                            const progress = Math.min((timestamp - startTime) / 4000, 1);
                             word.style.filter = `blur(${progress * 10}px)`;
                             word.style.opacity = 1 - progress;
                             if (progress < 1) requestAnimationFrame(animate);
