@@ -534,6 +534,25 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeOverlay();
 });
 
+// Mobile nav
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+
+mobileMenuBtn.addEventListener('click', () => mobileNav.classList.add('open'));
+mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+
+// Lightbox touch swipe
+let touchStartX = 0;
+lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) navigateLightbox(dx < 0 ? 1 : -1);
+}, { passive: true });
+
 // Console message
 console.log('🍸 Welcome to the Society of Cocktails');
 console.log('🎭 A pop-up immersive art speakeasy experience');
