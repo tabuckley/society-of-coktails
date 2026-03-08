@@ -76,6 +76,38 @@ hero.addEventListener('mousemove', (e) => {
     currentImageIndex = (currentImageIndex + 1) % trailImages.length;
 });
 
+// Touch trail — mobile equivalent of cursor trail
+function spawnTrailImageAtTouch(touch) {
+    const rect = hero.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+
+    const trailImg = document.createElement('img');
+    trailImg.className = 'trail-image';
+    trailImg.src = encodeURI(trailImages[currentImageIndex]);
+    trailImg.style.left = x + 'px';
+    trailImg.style.top = y + 'px';
+
+    const randomSize = Math.floor(Math.random() * 80) + 100; // 100–180px on mobile
+    trailImg.style.maxWidth = randomSize + 'px';
+    trailImg.style.maxHeight = randomSize + 'px';
+
+    hero.appendChild(trailImg);
+    currentImageIndex = (currentImageIndex + 1) % trailImages.length;
+}
+
+hero.addEventListener('touchstart', (e) => {
+    lastTrailTime = 0; // allow immediate spawn on tap
+    spawnTrailImageAtTouch(e.touches[0]);
+}, { passive: true });
+
+hero.addEventListener('touchmove', (e) => {
+    const now = Date.now();
+    if (now - lastTrailTime < trailDelay) return;
+    lastTrailTime = now;
+    spawnTrailImageAtTouch(e.touches[0]);
+}, { passive: true });
+
 // Smooth Scroll Reveal Animations
 const observerOptions = {
     threshold: 0.1,
