@@ -610,11 +610,11 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             if (progress < 1) requestAnimationFrame(animate);
                         };
                         requestAnimationFrame(animate);
-                    }, 3000 + i * 800);
+                    }, 1500 + i * 800);
                 });
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.1 });
 
     if (aboutSection) aboutMobileObserver.observe(aboutSection);
 }
