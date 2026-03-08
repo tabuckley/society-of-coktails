@@ -316,7 +316,6 @@ const eventData = {
             'images/the-aurelian/409958890_1055411779127311_3346965793207531885_n.jpg',
             'images/the-aurelian/cocoon.jpg',
             'images/the-aurelian/frass.jpg',
-            'images/the-aurelian/IMG_0305.jpg',
             'images/the-aurelian/small.jpg',
             'images/the-aurelian/smaller.jpg',
         ]
