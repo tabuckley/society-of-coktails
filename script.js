@@ -539,10 +539,21 @@ const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileNav = document.getElementById('mobileNav');
 const mobileNavClose = document.getElementById('mobileNavClose');
 
-mobileMenuBtn.addEventListener('click', () => mobileNav.classList.add('open'));
-mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileMenuBtn.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+    mobileMenuBtn.style.opacity = '0';
+    mobileMenuBtn.style.pointerEvents = 'none';
+});
+
+function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    mobileMenuBtn.style.opacity = '';
+    mobileMenuBtn.style.pointerEvents = '';
+}
+
+mobileNavClose.addEventListener('click', closeMobileNav);
 mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    link.addEventListener('click', closeMobileNav);
 });
 
 // Lightbox touch swipe
